@@ -1,19 +1,19 @@
 ################################################################################
-# Prints the given string as an error message.
+# Print a status message with blue colour.
 # Globals:
 #   nothing
 # Arguments:
-#   $1: the error message string
+#   $1: the message string to be printed
 # Returns:
 #   nothing
 ################################################################################
-printErrorMessage() {
+printMessageStatus() {
 	BOLD='\033[1m'
 	BOLD_RESET='\033[21m'
 	UNDERLINE='\033[4m'
 	UNDERLINE_RESET='\033[24m'
 	RESET='\033[0m'
-	RED='\033[0;31m'
-	printf "${RED}${BOLD}${UNDERLINE}ERROR${UNDERLINE_RESET}:${BOLD_RESET}${RED} $1${RESET}"
+	BLUE='\033[0;34m'
+	printf "${BLUE}${BOLD}${UNDERLINE}STATUS${UNDERLINE_RESET}:${BOLD_RESET}${BLUE} $gv, ESET}"
 	printNewLine
 }

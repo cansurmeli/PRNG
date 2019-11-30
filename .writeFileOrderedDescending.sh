@@ -1,12 +1,12 @@
 ################################################################################
-# Prints a newline. Merely a syntactic sugar
+# Flip the ascendingly sorted file to be descendingly sorted.
 # Globals:
 #   nothing
 # Arguments:
-#   nothing
+#   $1: fileName
 # Returns:
 #   nothing
 ################################################################################
-printNewLine() {
-	echo ""
+writeFileOrderedDescending() {
+	sort -gr $1-unordered.txt > $1-ordered-descending.txt
 }

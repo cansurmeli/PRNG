@@ -1,12 +1,12 @@
 ################################################################################
-# Prints a newline. Merely a syntactic sugar
+# Sort the randomly generated numbers in the file in ascending order.
 # Globals:
 #   nothing
 # Arguments:
-#   nothing
+#   $1: fileName
 # Returns:
 #   nothing
 ################################################################################
-printNewLine() {
-	echo ""
+writeFileOrderedAscending() {
+	sort -gr $1-unordered.txt > $1-ordered-ascending.txt
 }

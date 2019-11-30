@@ -1,5 +1,5 @@
 ################################################################################
-# [TODO:description]
+# Generate a file set
 # Globals:
 #   [TODO:var-name]
 # Arguments:
@@ -7,14 +7,16 @@
 # Returns:
 #   [TODO:description]
 ################################################################################
-generatRandomNumberSet() {
+generateFileSet() {
 	counter=0
 	numberCount=$1
 
-	until [ $counter -eq $generationCount ]
+	until [ $counter -eq $fileSetCatalogSize ]
 	do
 		fileName="${numberCount}-numbers-"$counter
-		./initiateRandomNumberFileSetGeneration.sh -f $fileName -n $numberCount
+		generateFileUnordered $fileName $numberCount
+		writeFileOrderedAscending $fileName
+		writeFileOrderedDescending $fileName
 		printStatusMessage "Generated ${counter}. file with ${numberCount} numbers."
 		((counter++))
 	done
