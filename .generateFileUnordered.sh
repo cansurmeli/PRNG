@@ -9,13 +9,12 @@
 #   nothing
 ################################################################################
 generateFileUnordered() {
-	#printStatusMessage "Started generating random numbers."
-
 	counter=1
+	numberCount=$2
 
-	until [ $counter -eq $2 ]
+	until [ $counter -eq $numberCount ]
 	do
-		echo $RANDOM >> $1-unordered.txt
+		echo $RANDOM >> data-set/$1-unordered.txt
 		((counter++))
 	done
 

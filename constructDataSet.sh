@@ -37,23 +37,19 @@ do
 done
 set -- "${POSITIONAL[@]}"					# restore positional parameters
 
+mkdir data-set
+
 # The count of generation for each file set
-# - [generationCount] files containing hundred numbers each
-# - [generationCount] files containing thousand numbers each
-# - [generationCount] files containing ten thousand numbers each
 fileSetCatalogSize=30
 
-generateFileSet 10000
-generateFileSet 20000
-generateFileSet 30000
-generateFileSet 40000
-generateFileSet 50000
-generateFileSet 60000
-generateFileSet 70000
-generateFileSet 80000
-generateFileSet 90000
-generateFileSet 100000
-
-# Move the files
-mkdir data-set
-mv *.txt data-set/
+# Start generating the file sets
+generateFileSet 10000 fileSetCatalogSize
+generateFileSet 20000 fileSetCatalogSize
+generateFileSet 30000 fileSetCatalogSize
+generateFileSet 40000 fileSetCatalogSize
+generateFileSet 50000 fileSetCatalogSize
+generateFileSet 60000 fileSetCatalogSize
+generateFileSet 70000 fileSetCatalogSize
+generateFileSet 80000 fileSetCatalogSize
+generateFileSet 90000 fileSetCatalogSize
+generateFileSet 100000 fileSetCatalogSize

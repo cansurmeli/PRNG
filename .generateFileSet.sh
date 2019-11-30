@@ -1,23 +1,24 @@
 ################################################################################
 # Generate a file set
 # Globals:
-#   [TODO:var-name]
+#   nothing
 # Arguments:
-#   $1: [TODO:description]
+#   $1: numberCount
+#   $2: fileSetCatalogSize
 # Returns:
-#   [TODO:description]
+#   nothing
 ################################################################################
 generateFileSet() {
 	counter=0
-	numberCount=$1
+	catalogSize=$2
 
-	until [ $counter -eq $fileSetCatalogSize ]
+	until [ $counter -eq $catalogSize ]
 	do
-		fileName="${numberCount}-numbers-"$counter
-		generateFileUnordered $fileName $numberCount
+		fileName="${1}-numbers-"$counter
+		generateFileUnordered $fileName $1
 		writeFileOrderedAscending $fileName
 		writeFileOrderedDescending $fileName
-		printStatusMessage "Generated ${counter}. file with ${numberCount} numbers."
+		printMessageStatus "Generated ${counter}. file with ${1} numbers."
 		((counter++))
 	done
 }
