@@ -17,6 +17,4 @@ generateFileUnordered() {
 		echo $RANDOM >> data-set/$1-unordered.txt
 		((counter++))
 	done
-
-	#printStatusMessage "Finished generating random numbers."
 }
