@@ -16,22 +16,28 @@
 ################################################################################
 generateFileSet() {
 	counter=0
+	numberCount=$1
 	fileSetCatalogSize=$2
 	fileSetFlavourOptions=$3
 
-	# parse $3 / uad
-	# if empty: just unordered
-	# otherwise parse the arguments
-	# order doesn't matter
-
 	until [ $counter -eq $fileSetCatalogSize ]
 	do
-		fileName="${1}-numbers-"$counter
-		generateFileUnordered $fileName $1
-		writeFileOrderedAscending $fileName
-		writeFileOrderedDescending $fileName
-		printMessageStatus "hello"
-		printMessageStatus "Generated ${counter}. file with ${1} numbers."
+		fileName="${numberCount}-numbers-"$counter
+		generateFileUnordered $fileName $numberCount
+
+		# Check for the requested additional flavours
+		#  - a: ascending
+		#  - d: descending
+		if [[ $fileSetFlavourOptions =~ "a" ]]
+		then
+			writeFileOrderedAscending $fileName
+		elif [[ $fileSetFlavourOptions =~ "d" ]]
+		then
+			writeFileOrderedDescending $fileName
+		fi
+
+		printMessageStatus "Generated ${counter}. file with ${numberCount} numbers."
+		
 		((counter++))
 	done
 }
