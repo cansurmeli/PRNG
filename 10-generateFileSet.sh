@@ -19,20 +19,24 @@ generateFileSet() {
 	local numberCount=$1
 	local catalogueSize=$2
 	local flavourOptions=$3
+	local statusMessage
 
 	until [ $counter -eq $catalogueSize ]
 	do
 		fileName=$numberCount"-numbers-"$counter
 
 		generateFileUnordered $fileName $numberCount
+		statusMessage="Generated ${counter}. file with ${numberCount} numbers."
 
 		# if a file set flavour is set
 		if [ ! -z $flavourOptions ]
 		then
 			writeFileOrdered $fileName $flavourOptions
+			unset statusMessage
+			statusMessage="Generated ${counter}. file set(${flavourOptions}) with ${numberCount} numbers."
 		fi
 
-		printMessageStatus "Generated ${counter}. file with ${numberCount} numbers."
+		printMessageStatus $statusMessage
 		
 		((counter++))
 	done
