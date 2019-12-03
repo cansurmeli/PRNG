@@ -23,17 +23,15 @@ generateFileSet() {
 	until [ $counter -eq $catalogueSize ]
 	do
 		fileName=$numberCount"-numbers-"$counter
+
 		generateFileUnordered $fileName $numberCount
 
 		# Check for the requested additional flavours
 		#  - a: ascending
 		#  - d: descending
-		if [[ $flavourOptions =~ "a" ]]
+		if [[ $flavourOptions =~ "a" || $flavourOptions =~ "d" ]]
 		then
-			writeFileOrderedAscending $fileName
-		elif [[ $flavourOptions =~ "d" ]]
-		then
-			writeFileOrderedDescending $fileName
+			writeFileOrdered $fileName $flavourOptions
 		fi
 
 		printMessageStatus "Generated ${counter}. file with ${numberCount} numbers."

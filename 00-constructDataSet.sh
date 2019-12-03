@@ -2,8 +2,7 @@
 
 source 10-generateFileSet.sh
 source 20-generateFileUnordered.sh
-source 21-writeFileOrderedAscending.sh
-source 22-writeFileOrderedDescending.sh
+source 21-writeFileOrdered.sh
 source printMessageError.sh
 source printMessageStatus.sh
 source printMessageWarning.sh
@@ -33,13 +32,13 @@ catalogueSize=30
 fileSetFlavours=ad
 
 # Start generating the dataset
-generateFileSet 10000 $catalogueSize fileSetFlavours
-generateFileSet 20000 $catalogueSize fileSetFlavours
-generateFileSet 30000 $catalogueSize fileSetFlavours
-generateFileSet 40000 $catalogueSize fileSetFlavours
-generateFileSet 50000 $catalogueSize fileSetFlavours
-generateFileSet 60000 $catalogueSize fileSetFlavours
-generateFileSet 70000 $catalogueSize fileSetFlavours
-generateFileSet 80000 $catalogueSize fileSetFlavours
-generateFileSet 90000 $catalogueSize fileSetFlavours
-generateFileSet 100000 $catalogueSize fileSetFlavours
+generateFileSet 10000 $catalogueSize $fileSetFlavours
+generateFileSet 20000 $catalogueSize $fileSetFlavours
+generateFileSet 30000 $catalogueSize $fileSetFlavours
+generateFileSet 40000 $catalogueSize $fileSetFlavours
+generateFileSet 50000 $catalogueSize $fileSetFlavours
+generateFileSet 60000 $catalogueSize $fileSetFlavours
+generateFileSet 70000 $catalogueSize $fileSetFlavours
+generateFileSet 80000 $catalogueSize $fileSetFlavours
+generateFileSet 90000 $catalogueSize $fileSetFlavours
+generateFileSet 100000 $catalogueSize $fileSetFlavours
