@@ -15,14 +15,14 @@
 #   nothing
 ################################################################################
 generateFileSet() {
-	counter=0
-	numberCount=$1
-	fileSetCatalogSize=$2
-	fileSetFlavourOptions=$3
+	local counter=0
+	local numberCount=$1
+	local fileSetCatalogSize=$2
+	local fileSetFlavourOptions=$3
 
 	until [ $counter -eq $fileSetCatalogSize ]
 	do
-		fileName="${numberCount}-numbers-"$counter
+		fileName=$numberCount"-numbers-"$counter
 		generateFileUnordered $fileName $numberCount
 
 		# Check for the requested additional flavours
