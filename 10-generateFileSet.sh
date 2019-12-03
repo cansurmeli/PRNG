@@ -26,18 +26,16 @@ generateFileSet() {
 		fileName=$numberCount"-numbers-"$counter
 
 		generateFileUnordered $fileName $numberCount
-		statusMessage="Generated ${counter}. file with ${numberCount} numbers."
+		printMessageStatus "Generated ${counter}. file with ${numberCount} numbers."
 
 		# if a file set flavour is set
 		if [ ! -z $flavourOptions ]
 		then
 			writeFileOrdered $fileName $flavourOptions
 			unset statusMessage
-			statusMessage="Generated ${counter}. file set(${flavourOptions}) with ${numberCount} numbers."
+			printMessageStatus "Generated ${counter}. file set(${flavourOptions}) with ${numberCount} numbers."
 		fi
 
-		printMessageStatus $statusMessage
-		
 		((counter++))
 	done
 }
