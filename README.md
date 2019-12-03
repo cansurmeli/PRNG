@@ -43,3 +43,7 @@ To run the script, based on the file naming scheme told above, the following scr
 If you just want to change the formation of the data set based on the rules defined above, all you have to do is edit the `00-construct-data-set.sh` file which is also well-documented in itself.
 
 However, you're more than welcome to fork the project and come up with your own solutions.
+
+## Remars
+
+- By default, the project `.gitignore` will ignore the dataset generated to be committed. There is a good chance that random numbers could mess up the commits.
