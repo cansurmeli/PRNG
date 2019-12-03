@@ -9,26 +9,37 @@ source printMessageStatus.sh
 source printMessageWarning.sh
 source printNewLine.sh
 
-# check if exists
-# and act accordingly
-mkdir data-set
+# Check if there is a previous dataset generated
+if [ -d "dataset" ]; then
+	printMessageWarning "There is a current dataset already generated. Do you wish to overwrite this. (y/n):"
+	read overWriteOption
+
+	if [ $overWriteOption == "y" ]; then
+		rm -rf dataset
+	elif [ $overWriteOption == "n" ]; then
+		mv dataset dataset-old
+	else
+		printMessageError "Your input could not be understood. Please run the script again."
+	fi
+fi
+
+mkdir dataset
 
 # The generation count for each file set in a category
-fileSetCatalogSize=30
+catalogueSize=30
 
-# u - unordered
 # a - ascending
 # d - descending
-desiredFileSetFlavours=ad
+fileSetFlavours=ad
 
-# Start generating the file sets
-generateFileSet 10000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 20000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 30000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 40000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 50000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 60000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 70000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 80000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 90000 $fileSetCatalogSize desiredFileSetFlavours
-generateFileSet 100000 $fileSetCatalogSize desiredFileSetFlavours
+# Start generating the dataset
+generateFileSet 10000 $catalogueSize fileSetFlavours
+generateFileSet 20000 $catalogueSize fileSetFlavours
+generateFileSet 30000 $catalogueSize fileSetFlavours
+generateFileSet 40000 $catalogueSize fileSetFlavours
+generateFileSet 50000 $catalogueSize fileSetFlavours
+generateFileSet 60000 $catalogueSize fileSetFlavours
+generateFileSet 70000 $catalogueSize fileSetFlavours
+generateFileSet 80000 $catalogueSize fileSetFlavours
+generateFileSet 90000 $catalogueSize fileSetFlavours
+generateFileSet 100000 $catalogueSize fileSetFlavours

@@ -8,5 +8,5 @@
 #   nothing
 ################################################################################
 writeFileOrderedDescending() {
-	sort -gr data-set/$1-unordered.txt > data-set/$1-ordered-descending.txt
+	sort -gr dataset/$1-unordered.txt > dataset/$1-ordered-descending.txt
 }

@@ -9,18 +9,18 @@
 #   nothing
 # Arguments:
 #   $1: numberCount
-#   $2: fileSetCatalogSize
-#   $3: fileSetFlavourOption(s)
+#   $2: catalogueSize
+#   $3: flavourOption(s)
 # Returns:
 #   nothing
 ################################################################################
 generateFileSet() {
 	local counter=0
 	local numberCount=$1
-	local fileSetCatalogSize=$2
-	local fileSetFlavourOptions=$3
+	local catalogueSize=$2
+	local flavourOptions=$3
 
-	until [ $counter -eq $fileSetCatalogSize ]
+	until [ $counter -eq $catalogueSize ]
 	do
 		fileName=$numberCount"-numbers-"$counter
 		generateFileUnordered $fileName $numberCount
@@ -28,10 +28,10 @@ generateFileSet() {
 		# Check for the requested additional flavours
 		#  - a: ascending
 		#  - d: descending
-		if [[ $fileSetFlavourOptions =~ "a" ]]
+		if [[ $flavourOptions =~ "a" ]]
 		then
 			writeFileOrderedAscending $fileName
-		elif [[ $fileSetFlavourOptions =~ "d" ]]
+		elif [[ $flavourOptions =~ "d" ]]
 		then
 			writeFileOrderedDescending $fileName
 		fi

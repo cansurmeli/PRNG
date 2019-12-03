@@ -15,7 +15,7 @@ generateFileUnordered() {
 
 	until [ $counter -eq $totalNumberCount ]
 	do
-		echo $RANDOM >> data-set/$fileName-unordered.txt
+		echo $RANDOM >> dataset/$fileName-unordered.txt
 		((counter++))
 	done
 }
