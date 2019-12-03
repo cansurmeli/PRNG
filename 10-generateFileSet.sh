@@ -26,10 +26,8 @@ generateFileSet() {
 
 		generateFileUnordered $fileName $numberCount
 
-		# Check for the requested additional flavours
-		#  - a: ascending
-		#  - d: descending
-		if [[ $flavourOptions =~ "a" || $flavourOptions =~ "d" ]]
+		# if a file set flavour is set
+		if [ ! -z $flavourOptions ]
 		then
 			writeFileOrdered $fileName $flavourOptions
 		fi
